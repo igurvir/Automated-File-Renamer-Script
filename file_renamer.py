@@ -35,6 +35,13 @@ def file_exists_ignore_case(new_file_path, directory):
     # Compare in a case-insensitive way
     return os.path.basename(new_file_path).lower() in existing_files_lower
 
+# Function to filter files based on user input file extensions
+def filter_files(files, filter_extensions):
+    if not filter_extensions:  # If no filter, return all files
+        return files
+    valid_extensions = [ext.strip().lower() for ext in filter_extensions.split(',')]  # Split user input
+    return [f for f in files if os.path.splitext(f)[1].lower() in valid_extensions]
+
 # Function to rename files (running on a separate thread)
 def rename_files():
     global directory
@@ -52,12 +59,16 @@ def rename_files():
     regex_option = regex_option_var.get()  # Get selected regex option
     find_text = find_var.get()  # Get the text to find
     replace_text = replace_var.get()  # Get the replacement text
+    filter_extensions = file_filter_var.get()  # Get the file extension filter
 
     count = 0  # Counter for renamed files
 
     try:
         files = os.listdir(directory)
         file_count = len([f for f in files if os.path.isfile(os.path.join(directory, f))])
+
+        # Apply the file filter
+        files = filter_files(files, filter_extensions)
 
         for file_name in files:
             if os.path.isfile(os.path.join(directory, file_name)):
@@ -137,7 +148,7 @@ def on_drop(event):
     directory = event.data.strip('{}')  # Strip the curly braces from the dropped path
     dropped_dir_label.config(text=f"Folder selected: {directory}")
     rename_button.config(text="Rename")  # Change button text to 'Rename'
-    remove_folder_button.grid(row=12, columnspan=2, pady=5)  # Show the 'Remove Folder' button
+    remove_folder_button.grid(row=13, columnspan=2, pady=5)  # Show the 'Remove Folder' button
 
 # Remove selected folder
 def remove_folder():
@@ -151,7 +162,7 @@ def remove_folder():
 def setup_gui():
     global root, prefix_var, suffix_var, replace_spaces_var, add_date_var, sequential_var
     global regex_option_var, modified_files_var, dropped_dir_label, rename_button, remove_folder_button
-    global find_var, replace_var  # Variables for find and replace
+    global find_var, replace_var, file_filter_var  # Variables for find and replace, and file filter
 
     root = TkinterDnD.Tk()  # Initialize TkinterDnD root window
     root.title("Advanced File Renamer")
@@ -189,20 +200,25 @@ def setup_gui():
     replace_var = tk.StringVar()
     tk.Entry(root, textvariable=replace_var).grid(row=7, column=1)
 
+    # File filter input
+    tk.Label(root, text="File Filter (e.g., .txt, .png):").grid(row=8, column=0, sticky='e')
+    file_filter_var = tk.StringVar()
+    tk.Entry(root, textvariable=file_filter_var).grid(row=8, column=1)
+
     # Label to show the number of modified files
     modified_files_var = tk.StringVar(value="0 files modified")
-    tk.Label(root, textvariable=modified_files_var).grid(row=9, columnspan=2)
+    tk.Label(root, textvariable=modified_files_var).grid(row=10, columnspan=2)
 
     # Rename button
     rename_button = tk.Button(root, text="Select Folder and Rename", command=start_renaming_thread)
-    rename_button.grid(row=8, columnspan=2, pady=5)
+    rename_button.grid(row=9, columnspan=2, pady=5)
 
     # Undo button
-    tk.Button(root, text="Undo Last Rename", command=undo_rename).grid(row=10, columnspan=2)
+    tk.Button(root, text="Undo Last Rename", command=undo_rename).grid(row=11, columnspan=2)
 
     # Label to display the dropped directory
     dropped_dir_label = tk.Label(root, text="Drag a folder here or select it using the button above")
-    dropped_dir_label.grid(row=11, columnspan=2, pady=10)
+    dropped_dir_label.grid(row=12, columnspan=2, pady=10)
 
     # 'Remove Folder' button (initially hidden)
     remove_folder_button = tk.Button(root, text="Remove Folder", command=remove_folder)
