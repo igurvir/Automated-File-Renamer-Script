@@ -25,3 +25,5 @@ INFO:root:Renamed '1.DS_Store' to '11.DS_Store' at 2024-09-13 00:05:16.771289
 INFO:root:Renamed '1_yy_xx_wowtestamazing____--_xx_yy.pages' to '11_yy_xx_wowtestamazing____--_xx_yy.pages' at 2024-09-13 00:05:16.771387
 INFO:root:Renamed '1_yy.DS_Store_yy' to '11_yy.DS_Store_yy' at 2024-09-13 00:05:16.771477
 INFO:root:Renamed '1_yytest2_yy.pages' to '11_yytest2_yy.pages' at 2024-09-13 00:05:16.771560
+ERROR:root:Error during undo: [Errno 2] No such file or directory: '/Users/gurvir/Desktop/TestFiles/1.DS_Store' -> '/Users/gurvir/Desktop/TestFiles/.DS_Store'
+ERROR:root:Error during undo: [Errno 2] No such file or directory: '/Users/gurvir/Desktop/TestFiles/1.DS_Store' -> '/Users/gurvir/Desktop/TestFiles/.DS_Store'

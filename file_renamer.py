@@ -4,6 +4,7 @@ import os
 import datetime
 import re
 import logging
+import threading
 
 # Set up logging
 logging.basicConfig(filename='rename_log.txt', level=logging.INFO)
@@ -23,7 +24,7 @@ def apply_predefined_regex(file_name, regex_option):
         return re.sub(r'(.*)', r'\1_updated', file_name)
     return file_name
 
-# Function to rename files
+# Function to rename files (running on a separate thread)
 def rename_files():
     directory = filedialog.askdirectory()
     if not directory:
@@ -92,6 +93,10 @@ def rename_files():
         messagebox.showerror("Error", str(e))
         logging.error(f"Error during renaming: {str(e)}")
 
+# Threaded function to prevent blocking the GUI
+def start_renaming_thread():
+    threading.Thread(target=rename_files).start()
+
 # Undo function to rename files back to their original names
 def undo_rename():
     try:
@@ -143,7 +148,7 @@ def setup_gui():
     tk.Label(root, textvariable=modified_files_var).grid(row=7, columnspan=2)
 
     # Buttons
-    tk.Button(root, text="Select Folder and Rename", command=rename_files).grid(row=6, columnspan=2, pady=5)
+    tk.Button(root, text="Select Folder and Rename", command=start_renaming_thread).grid(row=6, columnspan=2, pady=5)
     tk.Button(root, text="Undo Last Rename", command=undo_rename).grid(row=8, columnspan=2)
 
     # Add padding to all widgets
