@@ -45,6 +45,11 @@ def rename_files():
 
         for file_name in files:
             if os.path.isfile(os.path.join(directory, file_name)):
+
+                # Skip hidden files (those that start with a dot, e.g., .DS_Store)
+                if file_name.startswith('.'):
+                    continue
+
                 file_name_without_ext, file_extension = os.path.splitext(file_name)
                 new_name = file_name_without_ext
 
@@ -67,6 +72,11 @@ def rename_files():
                 old_file_path = os.path.join(directory, file_name)
                 new_file_path = os.path.join(directory, new_name)
 
+                # Check if the new file name already exists to prevent overwriting
+                if os.path.exists(new_file_path):
+                    messagebox.showwarning("Warning", f"The file '{new_name}' already exists. Skipping.")
+                    continue  # Skip this file to avoid overwriting
+
                 # Store renamed files for undo functionality
                 renamed_files[new_file_path] = old_file_path
 
@@ -86,6 +96,9 @@ def rename_files():
 def undo_rename():
     try:
         for new_name, old_name in renamed_files.items():
+            # Skip hidden files (those that start with a dot, e.g., .DS_Store)
+            if os.path.basename(new_name).startswith('.'):
+                continue
             os.rename(new_name, old_name)
         renamed_files.clear()
         messagebox.showinfo("Undo Success", "Files have been reverted to their original names.")
@@ -96,7 +109,7 @@ def undo_rename():
 # Create the GUI
 def setup_gui():
     global root, prefix_var, suffix_var, replace_spaces_var, add_date_var, sequential_var
-    global regex_option_var, replacement_text_var, modified_files_var
+    global regex_option_var, modified_files_var
 
     root = tk.Tk()
     root.title("Advanced File Renamer")

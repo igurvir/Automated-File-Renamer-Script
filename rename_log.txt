@@ -11,3 +11,17 @@ INFO:root:Renamed '_xx_wowtestamazing____--_xx.pages' to '_yy_xx_wowtestamazing_
 INFO:root:Renamed 'test1.pages' to '_yytest1_yy.pages' at 2024-09-12 23:56:10.114925
 INFO:root:Renamed '_xx__xx.DS_Store_1_2024-09-12' to '_yy_xx__xx_yy.DS_Store_1_2024-09-12' at 2024-09-12 23:56:10.115155
 INFO:root:Renamed 'test2.pages' to '_yytest2_yy.pages' at 2024-09-12 23:56:10.115256
+INFO:root:Renamed '.DS_Store' to '1.DS_Store' at 2024-09-13 00:02:30.242700
+INFO:root:Renamed '1_yytest1_yy.pages' to '11_yytest1_yy.pages' at 2024-09-13 00:02:30.244163
+INFO:root:Renamed '_yytest1_yy.pages' to '1_yytest1_yy.pages' at 2024-09-13 00:02:30.244306
+INFO:root:Renamed '_yy.DS_Store_yy' to '1_yy.DS_Store_yy' at 2024-09-13 00:02:30.244561
+INFO:root:Renamed '_yy_xx__xx_yy.DS_Store_1_2024-09-12' to '1_yy_xx__xx_yy.DS_Store_1_2024-09-12' at 2024-09-13 00:02:30.244725
+INFO:root:Renamed '_yy_xx_wowtestamazing____--_xx_yy.pages' to '1_yy_xx_wowtestamazing____--_xx_yy.pages' at 2024-09-13 00:02:30.244833
+INFO:root:Renamed '_yytest2_yy.pages' to '1_yytest2_yy.pages' at 2024-09-13 00:02:30.244935
+INFO:root:Renamed '1_yy_xx__xx_yy.DS_Store_1_2024-09-12' to '11_yy_xx__xx_yy.DS_Store_1_2024-09-12' at 2024-09-13 00:05:16.768271
+INFO:root:Renamed '11_yytest1_yy.pages' to '111_yytest1_yy.pages' at 2024-09-13 00:05:16.770977
+INFO:root:Renamed '1_yytest1_yy.pages' to '11_yytest1_yy.pages' at 2024-09-13 00:05:16.771191
+INFO:root:Renamed '1.DS_Store' to '11.DS_Store' at 2024-09-13 00:05:16.771289
+INFO:root:Renamed '1_yy_xx_wowtestamazing____--_xx_yy.pages' to '11_yy_xx_wowtestamazing____--_xx_yy.pages' at 2024-09-13 00:05:16.771387
+INFO:root:Renamed '1_yy.DS_Store_yy' to '11_yy.DS_Store_yy' at 2024-09-13 00:05:16.771477
+INFO:root:Renamed '1_yytest2_yy.pages' to '11_yytest2_yy.pages' at 2024-09-13 00:05:16.771560
