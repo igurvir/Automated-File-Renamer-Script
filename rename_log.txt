@@ -38,3 +38,13 @@ INFO:root:Renamed '111_yy_xx_wowtestamazing____--_xx_yy.pages' to 'gurvir_yy_xx_
 INFO:root:Renamed '111.DS_Store' to 'gurvir12.DS_Store' at 2024-09-13 00:18:26.768418
 INFO:root:Renamed '111_yy_xx__xx_yy.DS_Store_1_2024-09-12' to 'gurvir_yy_xx__xx_yy12.DS_Store_1_2024-09-12' at 2024-09-13 00:18:26.768712
 INFO:root:Renamed '111_yy.DS_Store_yy' to 'gurvir_yy12.DS_Store_yy' at 2024-09-13 00:18:30.433889
+INFO:root:Renamed 'gurvir_yy_xx_wowtestamazing____--_xx_yy12.pages' to 'gs_yy_xx_wowtestamazing____--_xx_yy12.pages' at 2024-09-13 00:28:30.218775
+INFO:root:Renamed 'gurvir_yy12.DS_Store_yy' to 'gs_yy12.DS_Store_yy' at 2024-09-13 00:28:30.221623
+INFO:root:Renamed 'gurvir_yytest_yy12.pages' to 'gs_yytest_yy12.pages' at 2024-09-13 00:28:31.653099
+INFO:root:Renamed 'gurvir_yy_xx__xx_yy12.DS_Store_1_2024-09-12' to 'gs_yy_xx__xx_yy12.DS_Store_1_2024-09-12' at 2024-09-13 00:28:32.635329
+INFO:root:Renamed 'gurvir12.DS_Store' to 'gs12.DS_Store' at 2024-09-13 00:28:32.635878
+INFO:root:Renamed 'gurvir_yy_xx_wowtestamazing____--_xx_yy12.pages' to 'gs_yy_xx_wowtestamazing____--_xx_yy12.pages' at 2024-09-13 00:29:04.835238
+INFO:root:Renamed 'gurvir_yy12.DS_Store_yy' to 'gs_yy12.DS_Store_yy' at 2024-09-13 00:29:04.836496
+INFO:root:Renamed 'gurvir_yytest_yy12.pages' to 'gs_yytest_yy12.pages' at 2024-09-13 00:29:06.334411
+INFO:root:Renamed 'gurvir_yy_xx__xx_yy12.DS_Store_1_2024-09-12' to 'gs_yy_xx__xx_yy12.DS_Store_1_2024-09-12' at 2024-09-13 00:29:07.035915
+INFO:root:Renamed 'gurvir12.DS_Store' to 'gs12.DS_Store' at 2024-09-13 00:29:07.036391

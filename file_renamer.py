@@ -50,6 +50,8 @@ def rename_files():
     add_date = add_date_var.get()
     sequential = sequential_var.get()
     regex_option = regex_option_var.get()  # Get selected regex option
+    find_text = find_var.get()  # Get the text to find
+    replace_text = replace_var.get()  # Get the replacement text
 
     count = 0  # Counter for renamed files
 
@@ -67,9 +69,14 @@ def rename_files():
                 file_name_without_ext, file_extension = os.path.splitext(file_name)
                 new_name = file_name_without_ext
 
+                # Apply Find and Replace first
+                if find_text and replace_text:
+                    new_name = new_name.replace(find_text, replace_text)
+
                 # Apply predefined regex if selected
                 new_name = apply_predefined_regex(new_name, regex_option)
 
+                # Apply prefix and suffix
                 if prefix:
                     new_name = prefix + new_name
                 if suffix:
@@ -130,7 +137,7 @@ def on_drop(event):
     directory = event.data.strip('{}')  # Strip the curly braces from the dropped path
     dropped_dir_label.config(text=f"Folder selected: {directory}")
     rename_button.config(text="Rename")  # Change button text to 'Rename'
-    remove_folder_button.grid(row=10, columnspan=2, pady=5)  # Show the 'Remove Folder' button
+    remove_folder_button.grid(row=12, columnspan=2, pady=5)  # Show the 'Remove Folder' button
 
 # Remove selected folder
 def remove_folder():
@@ -144,6 +151,7 @@ def remove_folder():
 def setup_gui():
     global root, prefix_var, suffix_var, replace_spaces_var, add_date_var, sequential_var
     global regex_option_var, modified_files_var, dropped_dir_label, rename_button, remove_folder_button
+    global find_var, replace_var  # Variables for find and replace
 
     root = TkinterDnD.Tk()  # Initialize TkinterDnD root window
     root.title("Advanced File Renamer")
@@ -172,20 +180,29 @@ def setup_gui():
     regex_options = ["None", "Remove numbers", "Replace spaces with underscores", "Remove special characters", "Append '_updated' before extension"]
     tk.OptionMenu(root, regex_option_var, *regex_options).grid(row=5, column=1)
 
+    # Find and replace inputs
+    tk.Label(root, text="Find:").grid(row=6, column=0, sticky='e')
+    find_var = tk.StringVar()
+    tk.Entry(root, textvariable=find_var).grid(row=6, column=1)
+
+    tk.Label(root, text="Replace with:").grid(row=7, column=0, sticky='e')
+    replace_var = tk.StringVar()
+    tk.Entry(root, textvariable=replace_var).grid(row=7, column=1)
+
     # Label to show the number of modified files
     modified_files_var = tk.StringVar(value="0 files modified")
-    tk.Label(root, textvariable=modified_files_var).grid(row=7, columnspan=2)
+    tk.Label(root, textvariable=modified_files_var).grid(row=9, columnspan=2)
 
     # Rename button
     rename_button = tk.Button(root, text="Select Folder and Rename", command=start_renaming_thread)
-    rename_button.grid(row=6, columnspan=2, pady=5)
+    rename_button.grid(row=8, columnspan=2, pady=5)
 
     # Undo button
-    tk.Button(root, text="Undo Last Rename", command=undo_rename).grid(row=8, columnspan=2)
+    tk.Button(root, text="Undo Last Rename", command=undo_rename).grid(row=10, columnspan=2)
 
     # Label to display the dropped directory
     dropped_dir_label = tk.Label(root, text="Drag a folder here or select it using the button above")
-    dropped_dir_label.grid(row=9, columnspan=2, pady=10)
+    dropped_dir_label.grid(row=11, columnspan=2, pady=10)
 
     # 'Remove Folder' button (initially hidden)
     remove_folder_button = tk.Button(root, text="Remove Folder", command=remove_folder)
