@@ -96,3 +96,5 @@ Copy code
 
 This version is in proper Markdown format for your GitHub repository. You can copy and paste this into your `README.md` file. Let me know if you need further adjustments
 ```
+## Connect with Me on LinkedIn
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/gurvir-singh-3a98a6255/)
