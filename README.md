@@ -60,17 +60,25 @@ python file_renamer.py
 ```
 ### How to Use the Features
 ***Prefix and Suffix:*** Enter the text you want to add at the start (prefix) or end (suffix) of each file name in the respective input fields.
+
 ***Replace Spaces with Underscores:*** Check the box labeled "Replace spaces with underscores" to automatically replace spaces in the file names with underscores.
+
 ***Find and Replace:*** In the "Find" field, enter the text you want to replace, and in the "Replace with" field, specify the text to replace it with. The script will search for the given text in the file names and replace it accordingly.
+
 ***Append Date:*** Check the box labeled "Add current date" to append today's date in the format YYYY-MM-DD to each file name.
+
 ***Sequential Renaming:*** Check the "Rename sequentially" box to number the files in ascending order, such as file_001, file_002, etc.
+
 ***Predefined Regex Options:***
 Remove numbers: Removes any digits from the file name.
 Replace spaces with underscores: Replaces all spaces with underscores.
 Remove special characters: Removes any special characters (e.g., !, @, #, etc.).
 Append '_updated' before extension: Adds the suffix _updated to the file name before the extension (e.g., file_updated.txt).
+
 ***File Extension Filtering:*** In the "File Filter" field, specify the file extensions of files you want to rename (e.g., .txt, .jpg). If left empty, the script will rename all files in the directory.
+
 ***Drag-and-Drop Folder Selection:*** You can drag a folder into the interface, and the path will automatically appear. You can also select the folder manually by clicking the "Select Folder" button.
+
 ***Undo Last Rename:*** If you've renamed files but need to revert the changes, click the "Undo Last Rename" button to restore the original file names.
 Example Usage
 
