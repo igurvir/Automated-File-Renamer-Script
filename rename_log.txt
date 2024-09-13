@@ -27,3 +27,14 @@ INFO:root:Renamed '1_yy.DS_Store_yy' to '11_yy.DS_Store_yy' at 2024-09-13 00:05:
 INFO:root:Renamed '1_yytest2_yy.pages' to '11_yytest2_yy.pages' at 2024-09-13 00:05:16.771560
 ERROR:root:Error during undo: [Errno 2] No such file or directory: '/Users/gurvir/Desktop/TestFiles/1.DS_Store' -> '/Users/gurvir/Desktop/TestFiles/.DS_Store'
 ERROR:root:Error during undo: [Errno 2] No such file or directory: '/Users/gurvir/Desktop/TestFiles/1.DS_Store' -> '/Users/gurvir/Desktop/TestFiles/.DS_Store'
+INFO:root:Renamed '11_yy_xx_wowtestamazing____--_xx_yy.pages' to '111_yy_xx_wowtestamazing____--_xx_yy.pages' at 2024-09-13 00:15:04.570480
+INFO:root:Renamed '11_yy_xx__xx_yy.DS_Store_1_2024-09-12' to '111_yy_xx__xx_yy.DS_Store_1_2024-09-12' at 2024-09-13 00:15:04.572581
+INFO:root:Renamed '11_yy.DS_Store_yy' to '111_yy.DS_Store_yy' at 2024-09-13 00:15:07.022709
+INFO:root:Renamed '111_yytest1_yy.pages' to '1111_yytest1_yy.pages' at 2024-09-13 00:15:07.023118
+INFO:root:Renamed '11.DS_Store' to '111.DS_Store' at 2024-09-13 00:15:07.023412
+INFO:root:Renamed '11_yytest2_yy.pages' to '111_yytest2_yy.pages' at 2024-09-13 00:15:07.023712
+INFO:root:Renamed '111_yytest2_yy.pages' to 'gurvir_yytest_yy12.pages' at 2024-09-13 00:18:26.766013
+INFO:root:Renamed '111_yy_xx_wowtestamazing____--_xx_yy.pages' to 'gurvir_yy_xx_wowtestamazing____--_xx_yy12.pages' at 2024-09-13 00:18:26.767946
+INFO:root:Renamed '111.DS_Store' to 'gurvir12.DS_Store' at 2024-09-13 00:18:26.768418
+INFO:root:Renamed '111_yy_xx__xx_yy.DS_Store_1_2024-09-12' to 'gurvir_yy_xx__xx_yy12.DS_Store_1_2024-09-12' at 2024-09-13 00:18:26.768712
+INFO:root:Renamed '111_yy.DS_Store_yy' to 'gurvir_yy12.DS_Store_yy' at 2024-09-13 00:18:30.433889

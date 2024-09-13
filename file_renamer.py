@@ -5,12 +5,14 @@ import datetime
 import re
 import logging
 import threading
+from tkinterdnd2 import TkinterDnD, DND_FILES  # Using TkinterDnD2 for drag-and-drop support
 
 # Set up logging
 logging.basicConfig(filename='rename_log.txt', level=logging.INFO)
 
 # Global dictionary to store renamed files
 renamed_files = {}
+directory = None  # Global variable to store the dragged directory path
 
 # Function to apply regex based on user selection
 def apply_predefined_regex(file_name, regex_option):
@@ -24,9 +26,20 @@ def apply_predefined_regex(file_name, regex_option):
         return re.sub(r'(.*)', r'\1_updated', file_name)
     return file_name
 
+# Function to check if file already exists, handling case sensitivity
+def file_exists_ignore_case(new_file_path, directory):
+    # Get a list of all files in the directory
+    existing_files = os.listdir(directory)
+    # Normalize case for comparison
+    existing_files_lower = [f.lower() for f in existing_files]
+    # Compare in a case-insensitive way
+    return os.path.basename(new_file_path).lower() in existing_files_lower
+
 # Function to rename files (running on a separate thread)
 def rename_files():
-    directory = filedialog.askdirectory()
+    global directory
+    if not directory:
+        directory = filedialog.askdirectory()
     if not directory:
         return
 
@@ -73,8 +86,8 @@ def rename_files():
                 old_file_path = os.path.join(directory, file_name)
                 new_file_path = os.path.join(directory, new_name)
 
-                # Check if the new file name already exists to prevent overwriting
-                if os.path.exists(new_file_path):
+                # Check if the new file name already exists to prevent overwriting (case-insensitive)
+                if file_exists_ignore_case(new_file_path, directory):
                     messagebox.showwarning("Warning", f"The file '{new_name}' already exists. Skipping.")
                     continue  # Skip this file to avoid overwriting
 
@@ -111,12 +124,28 @@ def undo_rename():
         messagebox.showerror("Error", str(e))
         logging.error(f"Error during undo: {str(e)}")
 
+# Drag-and-drop handler for directory
+def on_drop(event):
+    global directory
+    directory = event.data.strip('{}')  # Strip the curly braces from the dropped path
+    dropped_dir_label.config(text=f"Folder selected: {directory}")
+    rename_button.config(text="Rename")  # Change button text to 'Rename'
+    remove_folder_button.grid(row=10, columnspan=2, pady=5)  # Show the 'Remove Folder' button
+
+# Remove selected folder
+def remove_folder():
+    global directory
+    directory = None  # Reset the directory variable
+    dropped_dir_label.config(text="Drag a folder here or select it using the button above")
+    rename_button.config(text="Select Folder and Rename")  # Revert button text to 'Select Folder and Rename'
+    remove_folder_button.grid_forget()  # Hide the 'Remove Folder' button
+
 # Create the GUI
 def setup_gui():
     global root, prefix_var, suffix_var, replace_spaces_var, add_date_var, sequential_var
-    global regex_option_var, modified_files_var
+    global regex_option_var, modified_files_var, dropped_dir_label, rename_button, remove_folder_button
 
-    root = tk.Tk()
+    root = TkinterDnD.Tk()  # Initialize TkinterDnD root window
     root.title("Advanced File Renamer")
 
     # Input fields and variables
@@ -147,13 +176,28 @@ def setup_gui():
     modified_files_var = tk.StringVar(value="0 files modified")
     tk.Label(root, textvariable=modified_files_var).grid(row=7, columnspan=2)
 
-    # Buttons
-    tk.Button(root, text="Select Folder and Rename", command=start_renaming_thread).grid(row=6, columnspan=2, pady=5)
+    # Rename button
+    rename_button = tk.Button(root, text="Select Folder and Rename", command=start_renaming_thread)
+    rename_button.grid(row=6, columnspan=2, pady=5)
+
+    # Undo button
     tk.Button(root, text="Undo Last Rename", command=undo_rename).grid(row=8, columnspan=2)
+
+    # Label to display the dropped directory
+    dropped_dir_label = tk.Label(root, text="Drag a folder here or select it using the button above")
+    dropped_dir_label.grid(row=9, columnspan=2, pady=10)
+
+    # 'Remove Folder' button (initially hidden)
+    remove_folder_button = tk.Button(root, text="Remove Folder", command=remove_folder)
+    remove_folder_button.grid_forget()  # Hide this button initially
 
     # Add padding to all widgets
     for widget in root.winfo_children():
         widget.grid_configure(padx=5, pady=5)
+
+    # Bind the drop event to the root window
+    root.drop_target_register(DND_FILES)
+    root.dnd_bind('<<Drop>>', on_drop)
 
     root.mainloop()
 
