@@ -1,4 +1,4 @@
-# File Renamer Script
+# Automated File Renamer Script
 
 This Python script automates the process of renaming files in a directory based on user-defined rules. The script provides a user-friendly interface with advanced options like adding prefixes, suffixes, replacing text, appending dates, and sequential renaming. It also supports drag-and-drop functionality, regex-based renaming, file filtering by extension, and undoing the renaming action.
 
