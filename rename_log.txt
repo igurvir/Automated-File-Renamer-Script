@@ -2,3 +2,12 @@ INFO:root:Renamed '.DS_Store' to '_1.DS_Store_1_2024-09-12' at 2024-09-12 23:48:
 INFO:root:Renamed 'wowtest1amazing_001_001.pages' to '_1wowtest1amazing_001_001_1_2024-09-12.pages' at 2024-09-12 23:48:43.751216
 INFO:root:Renamed 'wowtest2amazing_003_002.pages' to '_1wowtest2amazing_003_002_1_2024-09-12.pages' at 2024-09-12 23:48:43.751334
 INFO:root:Renamed 'wowtest3amazing_002_003.pages' to '_1wowtest3amazing_002_003_1_2024-09-12.pages' at 2024-09-12 23:48:43.751427
+INFO:root:Renamed '_1wowtest2amazing_003_002_1_2024-09-12.pages' to '_xx_wowtestamazing____--_xx.pages' at 2024-09-12 23:54:18.384599
+INFO:root:Renamed '_1wowtest1amazing_001_001_1_2024-09-12.pages' to '_xx_wowtestamazing____--_xx.pages' at 2024-09-12 23:54:18.387814
+INFO:root:Renamed '_1wowtest3amazing_002_003_1_2024-09-12.pages' to '_xx_wowtestamazing____--_xx.pages' at 2024-09-12 23:54:18.388272
+INFO:root:Renamed '_1.DS_Store_1_2024-09-12' to '_xx__xx.DS_Store_1_2024-09-12' at 2024-09-12 23:54:18.388438
+INFO:root:Renamed '.DS_Store' to '_yy.DS_Store_yy' at 2024-09-12 23:56:10.114105
+INFO:root:Renamed '_xx_wowtestamazing____--_xx.pages' to '_yy_xx_wowtestamazing____--_xx_yy.pages' at 2024-09-12 23:56:10.114808
+INFO:root:Renamed 'test1.pages' to '_yytest1_yy.pages' at 2024-09-12 23:56:10.114925
+INFO:root:Renamed '_xx__xx.DS_Store_1_2024-09-12' to '_yy_xx__xx_yy.DS_Store_1_2024-09-12' at 2024-09-12 23:56:10.115155
+INFO:root:Renamed 'test2.pages' to '_yytest2_yy.pages' at 2024-09-12 23:56:10.115256
